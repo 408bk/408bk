@@ -1,16 +1,16 @@
 @font-face {
     font-family: 'Capture It 2';
-    src: url('FONTS/Capture_It_2.ttf') format('truetype');
+    src: url('/FONTS/Capture_It_2.ttf') format('truetype');
 }
 
 @font-face {
     font-family: 'DayPosterBlack';
-    src: url('FONTS/DayPosterBlack.ttf') format('truetype');
+    src: url('/FONTS/DayPosterBlack.ttf') format('truetype');
 }
 
 @font-face {
     font-family: 'Days';
-    src: url('FONTS/Days.ttf') format('truetype');
+    src: url('/FONTS/Days.ttf') format('truetype');
 }
 
 * {
