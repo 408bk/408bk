@@ -41,30 +41,12 @@ body {
 .logo {
     display: inline-flex;
     align-items: center; 
-    gap: 12px;
 }
 
 .logo-img {
-    height: 70px; /* Precise fixed constraints for desktop */
+    height: 75px; /* Sets your explicit logo height for desktop screens */
     width: auto;
     display: block;
-}
-
-.logo-text {
-    font-family: 'DayPosterBlack', sans-serif;
-    font-size: 5rem;
-    line-height: 1;
-    color: #ffffff;
-}
-
-.logo .domain {
-    font-family: 'Capture It 2', sans-serif;
-    font-size: 1.5rem;
-    background-color: #ffffff;
-    color: #000000;
-    padding: 2px 8px;
-    align-self: flex-end; /* Replaces unstable translateY hack */
-    margin-bottom: 8px;
 }
 
 /* ==========================================================================
@@ -72,7 +54,7 @@ body {
    ========================================================================== */
 .navbar {
     background-color: #ffffff;
-    border-block: 4px solid #000000; /* Combines top and bottom borders */
+    border-block: 4px solid #000000; 
     padding: 6px 0;
 }
 
@@ -84,7 +66,7 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
-    gap: 30px; /* Modern spacing engine instead of margin-right */
+    gap: 30px; 
 }
 
 .navbar a {
@@ -183,25 +165,14 @@ body {
    7. RESPONSIVE DESIGN (Mobile Optimizations)
    ========================================================================== */
 @media (max-width: 768px) {
-    .logo { 
-        flex-wrap: wrap; 
-        gap: 8px;
-    }
     .logo-img {
-        height: 40px; 
-    }
-    .logo-text {
-        font-size: 2.8rem;
-    }
-    .logo .domain { 
-        font-size: 1rem; 
-        margin-bottom: 4px;
+        height: 45px; /* Safely shrinks the image down on tablet/mobile views */
     }
     
     .navbar ul {
         justify-content: center; 
         padding: 0 10px;
-        gap: 10px 20px; /* Row and column gaps for clean wrapping links */
+        gap: 10px 20px; 
     }
     .navbar a {
         font-size: 1.1rem; 
@@ -233,8 +204,9 @@ body {
 
 /* Ultra-Small Screens Protection */
 @media (max-width: 380px) {
-    .logo-text { font-size: 2.2rem; }
-    .logo-img { height: 32px; }
+    .logo-img { 
+        height: 38px; /* Tighter baseline check for narrow phone screens */
+    }
     .date { font-size: 1.8rem; }
     .sub-headline { font-size: 1.2rem; }
 }
