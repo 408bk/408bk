@@ -5,12 +5,10 @@
     font-family: 'Capture It 2';
     src: url('/FONTS/Capture_It_2.ttf') format('truetype');
 }
-
 @font-face {
     font-family: 'DayPosterBlack';
     src: url('/FONTS/DayPosterBlack.ttf') format('truetype');
 }
-
 @font-face {
     font-family: 'Days';
     src: url('/FONTS/Days.ttf') format('truetype');
@@ -34,29 +32,29 @@ body {
 }
 
 /* ==========================================================================
-   3. HEADER & LOGO (With Image Integration)
+   3. HEADER & LOGO SYSTEM
    ========================================================================== */
 .main-header {
-    background-color: #000000;
     padding: 15px 20px 5px 20px;
 }
 
 .logo {
+    display: inline-flex;
+    align-items: center; 
+    gap: 12px;
+}
+
+.logo-img {
+    height: 70px; /* Precise fixed constraints for desktop */
+    width: auto;
+    display: block;
+}
+
+.logo-text {
     font-family: 'DayPosterBlack', sans-serif;
     font-size: 5rem;
     line-height: 1;
     color: #ffffff;
-    display: inline-flex;
-    align-items: center; /* Aligns image and text vertically */
-    flex-wrap: nowrap;
-}
-
-/* New image style within the logo */
-.logo-img {
-    height: 4.5rem;      /* Scales proportionally with the 5rem font-size */
-    width: auto;         /* Restricts width distortion */
-    margin-right: 15px;  /* Clean gap between graphic and text */
-    display: inline-block;
 }
 
 .logo .domain {
@@ -65,8 +63,8 @@ body {
     background-color: #ffffff;
     color: #000000;
     padding: 2px 8px;
-    margin-left: 5px;
-    transform: translateY(-5px); /* Adjusted slightly for better baseline balance */
+    align-self: flex-end; /* Replaces unstable translateY hack */
+    margin-bottom: 8px;
 }
 
 /* ==========================================================================
@@ -74,8 +72,7 @@ body {
    ========================================================================== */
 .navbar {
     background-color: #ffffff;
-    border-top: 4px solid #000000;
-    border-bottom: 4px solid #000000;
+    border-block: 4px solid #000000; /* Combines top and bottom borders */
     padding: 6px 0;
 }
 
@@ -87,10 +84,7 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
-}
-
-.navbar li {
-    margin-right: 30px;
+    gap: 30px; /* Modern spacing engine instead of margin-right */
 }
 
 .navbar a {
@@ -162,7 +156,6 @@ body {
     font-size: 1rem;
     font-weight: bold;
     line-height: 1.5;
-    text-align: center;
 }
 
 /* ==========================================================================
@@ -190,28 +183,25 @@ body {
    7. RESPONSIVE DESIGN (Mobile Optimizations)
    ========================================================================== */
 @media (max-width: 768px) {
-    /* Logo scaling down together */
     .logo { 
-        font-size: 2.8rem; 
         flex-wrap: wrap; 
+        gap: 8px;
     }
     .logo-img {
-        height: 2.5rem;     /* Scales perfectly down on mobile layouts */
-        margin-right: 8px;
+        height: 40px; 
+    }
+    .logo-text {
+        font-size: 2.8rem;
     }
     .logo .domain { 
         font-size: 1rem; 
-        transform: translateY(-2px); 
-        margin-left: 2px;
+        margin-bottom: 4px;
     }
     
-    /* Thumb-friendly Navigation Links */
     .navbar ul {
         justify-content: center; 
         padding: 0 10px;
-    }
-    .navbar li {
-        margin: 8px 15px; 
+        gap: 10px 20px; /* Row and column gaps for clean wrapping links */
     }
     .navbar a {
         font-size: 1.1rem; 
@@ -223,7 +213,6 @@ body {
         font-size: 1.6rem; 
     }
     
-    /* Layout Adjustments */
     .history-payload {
         padding: 20px 15px; 
     }
@@ -233,12 +222,8 @@ body {
         align-items: center;
         gap: 5px;
     }
-    .date { 
-        font-size: 2.2rem; 
-    }
-    .sub-headline { 
-        font-size: 1.4rem; 
-    }
+    .date { font-size: 2.2rem; }
+    .sub-headline { font-size: 1.4rem; }
     
     .image-grid {
         flex-direction: column;
@@ -248,16 +233,8 @@ body {
 
 /* Ultra-Small Screens Protection */
 @media (max-width: 380px) {
-    .logo {
-        font-size: 2.2rem;
-    }
-    .logo-img {
-        height: 2rem;
-    }
-    .date {
-        font-size: 1.8rem;
-    }
-    .sub-headline {
-        font-size: 1.2rem;
-    }
+    .logo-text { font-size: 2.2rem; }
+    .logo-img { height: 32px; }
+    .date { font-size: 1.8rem; }
+    .sub-headline { font-size: 1.2rem; }
 }
