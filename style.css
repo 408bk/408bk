@@ -1,3 +1,6 @@
+/* ==========================================================================
+   1. FONTS & RESET
+   ========================================================================== */
 @font-face {
     font-family: 'Capture It 2';
     src: url('/FONTS/Capture_It_2.ttf') format('truetype');
@@ -19,6 +22,9 @@
     box-sizing: border-box;
 }
 
+/* ==========================================================================
+   2. BASE STYLES
+   ========================================================================== */
 body {
     background-color: #000000;
     color: #ffffff;
@@ -27,6 +33,9 @@ body {
     padding-bottom: 40px;
 }
 
+/* ==========================================================================
+   3. HEADER & LOGO (With Image Integration)
+   ========================================================================== */
 .main-header {
     background-color: #000000;
     padding: 15px 20px 5px 20px;
@@ -38,7 +47,16 @@ body {
     line-height: 1;
     color: #ffffff;
     display: inline-flex;
-    align-items: flex-end;
+    align-items: center; /* Aligns image and text vertically */
+    flex-wrap: nowrap;
+}
+
+/* New image style within the logo */
+.logo-img {
+    height: 4.5rem;      /* Scales proportionally with the 5rem font-size */
+    width: auto;         /* Restricts width distortion */
+    margin-right: 15px;  /* Clean gap between graphic and text */
+    display: inline-block;
 }
 
 .logo .domain {
@@ -48,9 +66,12 @@ body {
     color: #000000;
     padding: 2px 8px;
     margin-left: 5px;
-    transform: translateY(-12px);
+    transform: translateY(-5px); /* Adjusted slightly for better baseline balance */
 }
 
+/* ==========================================================================
+   4. NAVIGATION BAR
+   ========================================================================== */
 .navbar {
     background-color: #ffffff;
     border-top: 4px solid #000000;
@@ -85,6 +106,9 @@ body {
     opacity: 0.7;
 }
 
+/* ==========================================================================
+   5. MAIN CONTENT LAYOUT
+   ========================================================================== */
 .content-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -141,6 +165,9 @@ body {
     text-align: center;
 }
 
+/* ==========================================================================
+   6. IMAGE GRID SYSTEM
+   ========================================================================== */
 .image-grid {
     display: flex;
     gap: 20px;
@@ -159,30 +186,36 @@ body {
     border: 1px solid #333;
 }
 
+/* ==========================================================================
+   7. RESPONSIVE DESIGN (Mobile Optimizations)
+   ========================================================================== */
 @media (max-width: 768px) {
-    /* 1. Scale down the logo so it doesn't clip on small screens */
+    /* Logo scaling down together */
     .logo { 
         font-size: 2.8rem; 
-        display: inline-flex;
-        flex-wrap: wrap; /* Prevents the badge from breaking layout if text is long */
+        flex-wrap: wrap; 
+    }
+    .logo-img {
+        height: 2.5rem;     /* Scales perfectly down on mobile layouts */
+        margin-right: 8px;
     }
     .logo .domain { 
         font-size: 1rem; 
-        transform: translateY(-4px); 
+        transform: translateY(-2px); 
         margin-left: 2px;
     }
     
-    /* 2. Optimize Navbar for thumbs (Stacked, centered, and larger tap targets) */
+    /* Thumb-friendly Navigation Links */
     .navbar ul {
-        justify-content: center; /* Center the links on mobile */
+        justify-content: center; 
         padding: 0 10px;
     }
     .navbar li {
-        margin: 8px 15px; /* Even spacing all around for vertical wrapping */
+        margin: 8px 15px; 
     }
     .navbar a {
-        font-size: 1.1rem; /* Bumping size up slightly for better mobile readability */
-        padding: 5px 10px; /* Creates a larger invisible 'hit box' for fingers */
+        font-size: 1.1rem; 
+        padding: 5px 10px; 
         display: inline-block;
     }
 
@@ -190,9 +223,9 @@ body {
         font-size: 1.6rem; 
     }
     
-    /* 3. Drop layout padding so content has room to breathe */
+    /* Layout Adjustments */
     .history-payload {
-        padding: 20px 15px; /* Reduced from 40px side padding */
+        padding: 20px 15px; 
     }
     
     .headline-container {
@@ -209,14 +242,17 @@ body {
     
     .image-grid {
         flex-direction: column;
-        gap: 15px; /* Slight reduction for tighter mobile view */
+        gap: 15px;
     }
 }
 
-/* Extra safety net for ultra-small phones (under 380px width) */
+/* Ultra-Small Screens Protection */
 @media (max-width: 380px) {
     .logo {
         font-size: 2.2rem;
+    }
+    .logo-img {
+        height: 2rem;
     }
     .date {
         font-size: 1.8rem;
