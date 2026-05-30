@@ -160,19 +160,68 @@ body {
 }
 
 @media (max-width: 768px) {
-    .logo { font-size: 3.5rem; }
-    .logo .domain { font-size: 1.1rem; transform: translateY(-8px); }
-    .ticker-banner h1 { font-size: 1.6rem; }
+    /* 1. Scale down the logo so it doesn't clip on small screens */
+    .logo { 
+        font-size: 2.8rem; 
+        display: inline-flex;
+        flex-wrap: wrap; /* Prevents the badge from breaking layout if text is long */
+    }
+    .logo .domain { 
+        font-size: 1rem; 
+        transform: translateY(-4px); 
+        margin-left: 2px;
+    }
+    
+    /* 2. Optimize Navbar for thumbs (Stacked, centered, and larger tap targets) */
+    .navbar ul {
+        justify-content: center; /* Center the links on mobile */
+        padding: 0 10px;
+    }
+    .navbar li {
+        margin: 8px 15px; /* Even spacing all around for vertical wrapping */
+    }
+    .navbar a {
+        font-size: 1.1rem; /* Bumping size up slightly for better mobile readability */
+        padding: 5px 10px; /* Creates a larger invisible 'hit box' for fingers */
+        display: inline-block;
+    }
+
+    .ticker-banner h1 { 
+        font-size: 1.6rem; 
+    }
+    
+    /* 3. Drop layout padding so content has room to breathe */
+    .history-payload {
+        padding: 20px 15px; /* Reduced from 40px side padding */
+    }
     
     .headline-container {
         flex-direction: column;
         align-items: center;
         gap: 5px;
     }
-    .date { font-size: 2.2rem; }
-    .sub-headline { font-size: 1.4rem; }
+    .date { 
+        font-size: 2.2rem; 
+    }
+    .sub-headline { 
+        font-size: 1.4rem; 
+    }
     
     .image-grid {
         flex-direction: column;
+        gap: 15px; /* Slight reduction for tighter mobile view */
+    }
+}
+
+/* Extra safety net for ultra-small phones (under 380px width) */
+@media (max-width: 380px) {
+    .logo {
+        font-size: 2.2rem;
+    }
+    .date {
+        font-size: 1.8rem;
+    }
+    .sub-headline {
+        font-size: 1.2rem;
     }
 }
