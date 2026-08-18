@@ -1,4 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700&display=swap');
+@font-face {
+  font-family: 'Perfect DOS VGA 437';
+  src: url('PerfectDOSVGA437.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
 * {
   box-sizing: border-box;
@@ -7,141 +12,107 @@
 }
 
 body {
-  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
-  background-color: #f6f3eb;
-  color: #1a1a1a;
+  font-family: 'Perfect DOS VGA 437', 'Courier New', monospace;
+  background-color: #000080;
+  color: #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  padding: 2rem 1rem;
-  line-height: 1.5;
+  padding: 1.5rem;
+  image-rendering: pixelated;
 }
 
-.wrapper {
+.dos-container {
   width: 100%;
-  max-width: 480px;
+  max-width: 580px;
+  background-color: #0000a8;
+  border: 3px double #ffffff;
+  padding: 1.5rem;
+  box-shadow: 10px 10px 0px #000000;
 }
 
-header {
+.dos-header {
+  border-bottom: 2px dashed #55ffff;
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.title-bar {
+  background-color: #55ffff;
+  color: #000000;
   text-align: center;
-  margin-bottom: 2rem;
+  font-weight: bold;
+  padding: 0.3rem;
+  margin-bottom: 0.8rem;
+  letter-spacing: 1px;
 }
 
-header h1 {
-  font-size: 2rem;
-  letter-spacing: -0.03em;
-  margin-bottom: 0.4rem;
-}
-
-header p {
-  color: #666;
-  font-size: 0.95rem;
+.dos-header p {
+  color: #ffff55;
+  font-size: 1rem;
 }
 
 .links {
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
+  gap: 1rem;
 }
 
 .card {
-  display: block;
-  background: #ffffff;
-  padding: 1.25rem 1.4rem;
-  border-radius: 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  background-color: #000080;
+  border: 2px solid #55ffff;
+  padding: 0.8rem 1rem;
   text-decoration: none;
-  color: inherit;
-  border: 2px solid #1a1a1a;
-  box-shadow: 4px 4px 0px #1a1a1a;
-  transition: all 0.15s ease-in-out;
+  color: #ffffff;
+  transition: background-color 0.05s, color 0.05s;
 }
 
 .card:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0px #e05a47;
-  border-color: #e05a47;
+  background-color: #55ffff;
+  color: #000000;
+  border-color: #ffffff;
+}
+
+.card-num {
+  color: #ffff55;
+}
+
+.card:hover .card-num,
+.card:hover p {
+  color: #000000;
 }
 
 .card h2 {
-  font-size: 1.1rem;
-  margin-bottom: 0.3rem;
+  font-size: 1.15rem;
+  letter-spacing: 1px;
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
 }
 
 .card p {
-  color: #555;
-  font-size: 0.9rem;
-}@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700&display=swap');
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
-  background-color: #f6f3eb;
-  color: #1a1a1a;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  padding: 2rem 1rem;
-  line-height: 1.5;
-}
-
-.wrapper {
-  width: 100%;
-  max-width: 480px;
-}
-
-header {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-header h1 {
-  font-size: 2rem;
-  letter-spacing: -0.03em;
-  margin-bottom: 0.4rem;
-}
-
-header p {
-  color: #666;
+  color: #aaaaaa;
   font-size: 0.95rem;
 }
 
-.links {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
+.dos-footer {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 2px dashed #55ffff;
+  color: #55ffff;
+  font-size: 0.95rem;
 }
 
-.card {
-  display: block;
-  background: #ffffff;
-  padding: 1.25rem 1.4rem;
-  border-radius: 16px;
-  text-decoration: none;
-  color: inherit;
-  border: 2px solid #1a1a1a;
-  box-shadow: 4px 4px 0px #1a1a1a;
-  transition: all 0.15s ease-in-out;
+.cursor {
+  display: inline-block;
+  margin-left: 4px;
+  animation: blink 0.8s steps(2, start) infinite;
 }
 
-.card:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0px #e05a47;
-  border-color: #e05a47;
-}
-
-.card h2 {
-  font-size: 1.1rem;
-  margin-bottom: 0.3rem;
-}
-
-.card p {
-  color: #555;
-  font-size: 0.9rem;
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
